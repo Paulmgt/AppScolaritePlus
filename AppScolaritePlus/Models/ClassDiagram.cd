@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AppScolaritePlus.Models.Modules">
+    <Position X="3.5" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>CAACAQAAAAAgAAQAEAAAAAAAACAAAAAAAAAAAAgAAAE=</HashCode>
+      <FileName>Models\Modules.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AppScolaritePlus.Models.Parcours">
+    <Position X="1.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EAACAQAAAAAgCAAAAAAAAAAQAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Models\Parcours.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Modules" />
+      <Property Name="SessionsFormation" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="AppScolaritePlus.Models.SessionsFormation">
+    <Position X="6.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAEAAABAAEAAAAAAAACAAgAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Models\SessionsFormation.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Utilisateurs" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="AppScolaritePlus.Models.UnitesPedagogique">
+    <Position X="7" Y="4.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAQAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\UnitesPedagogique.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Modules" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="AppScolaritePlus.Models.Utilisateurs">
+    <Position X="10.25" Y="3.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EAACAAAAACAAAAAAAAAAAAAAACEQAAAAACAAQAAAAAA=</HashCode>
+      <FileName>Models\Utilisateurs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
