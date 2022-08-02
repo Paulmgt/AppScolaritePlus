@@ -1,0 +1,65 @@
+﻿@model AppScolaritePlus.Models.Modules
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Modules</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nom" class="control-label"></label>
+                <input asp-for="Nom" class="form-control" />
+                <span asp-validation-for="Nom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descriptif" class="control-label"></label>
+                <input asp-for="Descriptif" class="form-control" />
+                <span asp-validation-for="Descriptif" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Logo" class="control-label"></label>
+                <input asp-for="Logo" onchange="document.getElementById('photoModules')
+                    .src=window.URL
+                    .createObjectURL(this.files[0])" type="file" class="form-control" />
+                <img id="photoModules" class="fileImage"/>
+                <span asp-validation-for="Logo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Resume" class="control-label"></label>
+                <input asp-for="Resume" class="form-control" />
+                <span asp-validation-for="Resume" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Infos" class="control-label"></label>
+                <input asp-for="Infos" class="form-control" />
+                <span asp-validation-for="Infos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Parcours" class="control-label"></label>
+                <select asp-for="ParcoursId" class ="form-control" asp-items="ViewBag.ParcoursId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="UnitePedagogique" class="control-label"></label>
+                <select asp-for="UnitesPedagogiqueId" class ="form-control" asp-items="ViewBag.UnitesPedagogiqueId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
