@@ -48,7 +48,7 @@ namespace AppScolaritePlus.Controllers
         // GET: SessionsFormations/Create
         public IActionResult Create()
         {
-            ViewData["ParcoursId"] = new SelectList(_context.Parcours, "Id", "Id");
+            ViewData["ParcoursId"] = new SelectList(_context.Parcours, "Id", "Intitule");
             return View();
         }
 
