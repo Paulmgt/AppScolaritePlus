@@ -21,7 +21,8 @@ namespace AppScolaritePlus.Controllers
         // GET: SessionsFormations
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.SessionsFormations.Include(s => s.Parcours);
+            var applicationDbContext = _context.SessionsFormations
+                .Include(s => s.Parcours).Where(x => x.DateDebut >= DateTime.Today).Include(x => x.Parcours.Modules);
             return View(await applicationDbContext.ToListAsync());
         }
 

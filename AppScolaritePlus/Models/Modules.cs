@@ -15,9 +15,9 @@
 
         public string? Infos { get; set; }
 
-        public int ParcoursId { get; set; }
+        public int? ParcoursId { get; set; }
 
-        public int UnitesPedagogiqueId { get; set; }
+        public int? UnitesPedagogiqueId { get; set; }
 
         public Parcours? Parcours { get; set; }
 
