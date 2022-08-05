@@ -164,5 +164,21 @@ namespace AppScolaritePlus.Controllers
         {
           return (_context.SessionsFormations?.Any(e => e.Id == id)).GetValueOrDefault();
         }
+
+
+        public async Task<IActionResult> Inscription (int id)
+        {
+            var connectedUser = HttpContext.User.Identity.Name;
+
+            if (connectedUser == null)
+                return new RedirectResult("../Identity/Account/Register");
+            else
+                return Redirect($"~/Utilisateurs/Create1?Username={connectedUser}&id={id}");
+        }
+        private bool SessionsFormationExist(int id)
+        {
+            return (_context.SessionsFormations?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+
     }
 }

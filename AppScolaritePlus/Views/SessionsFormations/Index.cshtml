@@ -36,7 +36,7 @@
             <img class="rounded-circle" src="~/LogosParcours/@item.Parcours?.Logo" alt="@item.Parcours?.Logo" width="140" height="140">
             <h2>@item.Parcours?.Intitule</h2>
             <p>@item.Parcours.Resume</p>
-                <p><a class="btn btn-secondary"  asp-controller="Parcours" asp-action="Details" role="button">View details »</a></p>
+                <p><a class="btn btn-secondary"  asp-action="Inscription" asp-route-id="@item.Id" role="button">View details »</a></p>
             </div>
     }
           </div><!-- /.col-lg-4 -->
@@ -76,11 +76,4 @@
         <!-- /END THE FEATURETTES -->
         
       </div><!-- /.container -->
-
-
-      <!-- FOOTER -->
-      <footer class="container">
-        <p class="float-right"><a href="#">Back to top</a></p>
-        <p>© 2017-2018 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
-      </footer>
     </main>

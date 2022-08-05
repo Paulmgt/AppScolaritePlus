@@ -18,7 +18,7 @@ namespace AppScolaritePlus.Models
         [DataType(DataType.Date)]
         public DateTime? DateNaissance { get; set; }
 
-        public int SessionsFormationId { get; set; }
+        public int? SessionsFormationId { get; set; }
 
         public SessionsFormation? SessionsFormation { get; set; }
 
