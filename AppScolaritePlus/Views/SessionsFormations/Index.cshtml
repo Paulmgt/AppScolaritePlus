@@ -5,50 +5,75 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Nouvelles Session</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nom)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateDebut)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateFin)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Parcours)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nom)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateDebut)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateFin)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Parcours.Intitule)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+
+ <main role="main">
+
+     <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">Nos Sessions</h1>
+          <p class="lead text-muted">Ajouter une Session</p>
+          <p>
+            <a asp-action="Create" class="btn btn-primary my-2">Cree</a>
+            
+          </p>
+        </div>
+      </section>
+      <!-- Marketing messaging and featurettes
+      ================================================== -->
+      <!-- Wrap the rest of the page in another container to center all the content. -->
+
+      <div class="container marketing">
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+
+               @foreach (var item in Model.Take(2))
+    {
+          <div class="col-lg-4" style="align-content:center;">
+            
+            <img class="rounded-circle" src="~/LogosParcours/@item.Parcours?.Logo" alt="@item.Parcours?.Logo" width="140" height="140">
+            <h2>@item.Parcours?.Intitule</h2>
+            <p>@item.Parcours.Resume</p>
+                <p><a class="btn btn-secondary"  asp-action="Inscription" asp-route-id="@item.Id" role="button">View details »</a></p>
+            </div>
+    }
+          </div><!-- /.col-lg-4 -->
+          
+          <!-- START THE FEATURETTES -->
+
+        <hr class="featurette-divider">
+       
+
+        <div class="row featurette">
+            
+            @foreach (var item in Model)
+            
+            {
+                <div class="col-md-7">
+            <h2 class="featurette-heading">@item.Parcours?.Intitule <span class="text-muted">Du @item.DateDebut au @item.DateFin</span></h2>
+            <p class="lead">@item.Parcours.Resume </p>
+             <div class="btn-group">
+                      <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Editer</a>
+                      <a asp-action="Details"  asp-route-id="@item.Id"  class="btn btn-sm btn-outline-secondary">Details</a>
+                      <a asp-action="Delete"  asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Delete</a>
+                  </div>
+                </div>
+                <div class="col-md-5">
+            <img class="rounded float-right" data-src="holder.js/300x300/auto" alt="300x300" style="width: 300px; height: 300;" src="~/logosParcours/@item?.Parcours.Logo" data-holder-rendered="true">
+          </div>
+          
+          <hr class="featurette-divider">
+          
+    
+                }
+        </div>
+
+       
+
+
+        <!-- /END THE FEATURETTES -->
+        
+      </div><!-- /.container -->
+    </main>

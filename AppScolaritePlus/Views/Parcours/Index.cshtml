@@ -5,50 +5,52 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<main role="main">
 
-<p>
-    <a asp-action="Create">Nouveau Parcour</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Intitule)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Logo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Resume)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Infos)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Intitule)
-            </td>
-            <td>
-                 <img src="~/LogosParcours/@item.Logo" />  
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Resume)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Infos)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">Nos Parcours</h1>
+          <p class="lead text-muted">Ajouter un Parcour</p>
+          <p>
+            <a asp-action="Create" class="btn btn-primary my-2">Cree</a>
+            
+          </p>
+        </div>
+      </section>
+
+      <div class="album py-5 bg-light">
+        <div class="container">
+
+          <div class="row">
+              @{
+    
+
+        @if (Model != null)
+        @foreach (var item in Model)
+    {
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top"  src="~/logosParcours/@item?.Logo" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;"  data-holder-rendered="true">
+                <div class="card-body">
+                <h2 class="card-title text-warning align-content-center">@item.Intitule</h2>
+                  <p class="card-text align-content-center ">@item?.Resume</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Editer</a>
+                      <a asp-action="Details"  asp-route-id="@item.Id"  class="btn btn-sm btn-outline-secondary">Details</a>
+                      <a asp-action="Delete"  asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Delete</a>
+
+                    </div>
+                    <small class="text-muted"></small>
+                  </div>
+                </div>
+              </div>
+            </div>
+             }
+   
 }
-    </tbody>
-</table>
+          </div>
+        </div>
+      </div>
+
+    </main>

@@ -18,6 +18,11 @@ namespace AppScolaritePlus.Controllers
             _context = context;
         }
 
+        //public IActionResult Create1(string username, int id)
+        //{
+        //    Utilisateurs utilisateurs = new Utilisateurs() { Email = username, SessionsFormationId = id};
+        //}
+
         // GET: Utilisateurs
         public async Task<IActionResult> Index()
         {
@@ -66,6 +71,8 @@ namespace AppScolaritePlus.Controllers
             }
             ViewData["SessionsFormationId"] = new SelectList(_context.SessionsFormations, "Id", "Nom", utilisateurs.SessionsFormationId);
             return View(utilisateurs);
+
+            
         }
 
         // GET: Utilisateurs/Edit/5

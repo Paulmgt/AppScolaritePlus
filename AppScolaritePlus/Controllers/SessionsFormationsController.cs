@@ -21,7 +21,8 @@ namespace AppScolaritePlus.Controllers
         // GET: SessionsFormations
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.SessionsFormations.Include(s => s.Parcours);
+            var applicationDbContext = _context.SessionsFormations
+                .Include(s => s.Parcours).Where(x => x.DateDebut >= DateTime.Today).Include(x => x.Parcours.Modules);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -47,7 +48,7 @@ namespace AppScolaritePlus.Controllers
         // GET: SessionsFormations/Create
         public IActionResult Create()
         {
-            ViewData["ParcoursId"] = new SelectList(_context.Parcours, "Id", "Id");
+            ViewData["ParcoursId"] = new SelectList(_context.Parcours, "Id", "Intitule");
             return View();
         }
 
@@ -163,5 +164,21 @@ namespace AppScolaritePlus.Controllers
         {
           return (_context.SessionsFormations?.Any(e => e.Id == id)).GetValueOrDefault();
         }
+
+
+        public async Task<IActionResult> Inscription (int id)
+        {
+            var connectedUser = HttpContext.User.Identity.Name;
+
+            if (connectedUser == null)
+                return new RedirectResult("../Identity/Account/Register");
+            else
+                return Redirect($"~/Utilisateurs/Create1?Username={connectedUser}&id={id}");
+        }
+        private bool SessionsFormationExist(int id)
+        {
+            return (_context.SessionsFormations?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+
     }
 }
