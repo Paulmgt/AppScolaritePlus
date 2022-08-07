@@ -5,43 +5,44 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
-
-<h4>Parcours</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Intitule" class="control-label"></label>
-                <input asp-for="Intitule" class="form-control" />
-                <span asp-validation-for="Intitule" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Logo" class="control-label"></label>
+<div class="bg-white text-black">
+    <div class="container py-3">
+      <div class="bg-white mt-n5 mt-md-n6 px-3 px-md-0">
+        <div class="row justify-content-center py-4 py-lg-5">
+          <div class="col-md-10 col-lg-8">
+           <div style="text-align: center">
+               <h1>Créer</h1>
+               <h4>Parcours</h4>
+           </div>
+           <form class="py-3" asp-action="Create" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+              <div class="mb-4">
+                <label asp-for="Intitule" class="form-label"> Intitulé <span class="text-secondary">*</span></label>
+                <input asp-for="Intitule"  type="text" class="form-control" id="inputName" placeholder="Entrer votre Intitlé" required="">
+              </div>
+              <div class="mb-4">
+                <label asp-for="Resume" class="form-label">Resume <span class="text-secondary">*</span></label>
+                <textarea asp-for="Resume"  class="form-control" id="ResumeTextarea" rows="5" placeholder="Entrée votre resume"  required=""></textarea>
+              </div> 
+              <div class="mb-4">
+                <label asp-for="Infos" class="form-label"> Infos <span class="text-secondary">*</span></label>
+                <textarea asp-for="Infos" class="form-control" id="InfoTextarea" rows="3" placeholder="Entrée les Infos"  required=""></textarea>
+              </div>
+              <div class="mb-4">
+                <label asp-for="Logo"  class="form-label"> Logo <span class="text-secondary">*</span></label>
                 <input asp-for="Logo" onchange="document.getElementById('photoParcours')
                     .src=window.URL
                     .createObjectURL(this.files[0])" type="file" class="form-control" />
                 <img id="photoParcours" class="fileImage"/>
-                <span asp-validation-for="Logo" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Resume" class="control-label"></label>
-                <input asp-for="Resume" class="form-control" />
-                <span asp-validation-for="Resume" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Infos" class="control-label"></label>
-                <input asp-for="Infos" class="form-control" />
-                <span asp-validation-for="Infos" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+              <button type="submit"  value="Create" class="btn btn-dark">Créer</button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
+
 
 <div>
     <a asp-action="Index">Back to List</a>

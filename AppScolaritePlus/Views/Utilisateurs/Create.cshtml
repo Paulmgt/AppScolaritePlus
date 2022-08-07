@@ -5,49 +5,51 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
 
-<h4>Utilisateurs</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
+
+<div class="bg-white text-black">
+    <div class="container py-3">
+      <div class="bg-white mt-n5 mt-md-n6 px-3 px-md-0">
+        <div class="row justify-content-center py-4 py-lg-5">
+          <div class="col-md-10 col-lg-8">
+            <div>
+             <h1>Créer</h1>
+             <h4>Un compte</h4>
             </div>
-            <div class="form-group">
-                <label asp-for="Nom" class="control-label"></label>
-                <input asp-for="Nom" class="form-control" />
-                <span asp-validation-for="Nom" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Prenom" class="control-label"></label>
-                <input asp-for="Prenom" class="form-control" />
-                <span asp-validation-for="Prenom" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Adresse" class="control-label"></label>
-                <input asp-for="Adresse" class="form-control" />
-                <span asp-validation-for="Adresse" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DateNaissance" class="control-label"></label>
-                <input asp-for="DateNaissance" class="form-control" />
-                <span asp-validation-for="DateNaissance" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SessionsFormationId" class="control-label"></label>
-                <select asp-for="SessionsFormationId" class ="form-control" asp-items="ViewBag.SessionsFormationId"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+             <form class="py-3" asp-action="Create" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+              <div class="mb-4">
+                <label asp-for="Email" class="form-label">Email <span class="text-secondary">*</span></label>
+                <input asp-for="Email" type="email" class="form-control" id="inputEmail" placeholder="Entrez votre Email" required="">
+              </div>
+              <div class="mb-4">
+                <label asp-for="Nom" class="form-label">Nom <span class="text-secondary">*</span></label>
+                <input asp-for="Nom" type="text" class="form-control" id="inputName" placeholder="Entrez votre Nom" required="">
+              </div>
+              <div class="mb-4">
+                <label asp-for="Adresse"class="form-label">Adresse <span class="text-secondary">*</span></label>
+                <textarea asp-for="Adresse" class="form-control" id="messageTetxarea" rows="2" placeholder="Entrez votre Adresse" required=""></textarea>
+              </div>
+               <div class="mb-4">
+                <label asp-for="DateNaissance" class="form-label">Date de Naissance <span class="text-secondary">*</span></label>
+                <input asp-for="DateNaissance"  type="Date" class="form-control" id="inputDateNaissance" placeholder="Entrez votre Date de Naissance" required="">
+              </div>
+               <div class="mb-4">
+                <label  asp-for="SessionsFormation" class="form-label">Sessions <span class="text-secondary">*</span></label>
+                <select asp-for="SessionsFormationId"   type="Date" class="form-control" id="selectFormation" placeholder="Lier votre Foramtion" required=""></select>
+              </div>
+              <div class="mb-4 form-check">
+                <input type="checkbox" class="form-check-input" id="inputCheck">
+                <label class="form-check-label small" for="inputCheck">J'accepte les conditions' <a href="#" class="link-underline">terms et conditions</a></label>
+              </div>
+              <button type="submit" class="btn btn-dark">Créer</button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
+ 
 
 <div>
     <a asp-action="Index">Back to List</a>

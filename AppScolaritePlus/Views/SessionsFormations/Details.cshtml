@@ -5,38 +5,102 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
 
-<div>
-    <h4>SessionsFormation</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nom)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nom)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DateDebut)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DateDebut)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DateFin)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DateFin)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Parcours)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Parcours.Intitule)
-        </dd>
-    </dl>
-</div>
+
+
+<main id="main">
+  <!-- Header -->
+  <div class="container text-center py-5 py-md-6">
+    <h1 class="display-3 mb-5">Photography</h1>
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-xxl-8">
+        <figure>
+          <blockquote class="blockquote text-center">
+            <p class="fst-italic">When words become unclear, I shall focus with photographs. When images become inadequate, I shall be content with silence.</p>
+          </blockquote>
+          <figcaption class="blockquote-footer text-center mt-n2">Ansel Adams</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- Projects -->
+  <div class="container pb-5">
+    <div class="row gx-xl-5">
+      <div class="col-md-6">
+        <figure class="img-color position-relative mb-5">
+          <img src="assets/img/autumn-leafs.jpg" alt="Autumn leafs" class="img-fluid mb-3" width="800" height="533">
+          <figcaption class="h4 fw-light text-light text-center">
+            <a href="project-3.html" class="stretched-link">Autumn</a>
+          </figcaption>
+        </figure>
+        <figure class="img-color position-relative mb-5">
+          <img src="assets/img/seashore.jpg" alt="Seashore during golden hour" class="img-fluid mb-3" width="800" height="532">
+          <figcaption class="h4 fw-light text-light text-center">
+            <a href="project-3.html" class="stretched-link">Summer</a>
+          </figcaption>
+        </figure>
+        <figure class="img-color position-relative mb-5">
+          <img src="assets/img/time-square.jpg" alt="Time Square - New York" class="img-fluid mb-3" width="800" height="1200">
+          <figcaption class="h4 fw-light text-light text-center">
+            <a href="project-3.html" class="stretched-link">Cities</a>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="col-md-6">
+        <figure class="img-color position-relative mb-5">
+          <img src="assets/img/wooden-house.jpg" alt="Skogafoss Stairs - Iceland" class="img-fluid mb-3" width="800" height="1200">
+          <figcaption class="h4 fw-light text-light text-center"><a href="project-3.html" class="stretched-link">Winter</a>
+          </figcaption>
+        </figure>
+        <figure class="img-color position-relative mb-5">
+          <img src="assets/img/cherry-blossoms.jpg" alt="Cherry blossom tree under clear blue sky" class="img-fluid mb-3" width="800" height="500">
+          <figcaption class="h4 fw-light text-light text-center"><a href="project-3.html" class="stretched-link">Spring</a>
+          </figcaption>
+        </figure>
+        <figure class="img-color position-relative mb-5">
+          <img src="assets/img/people.jpg" alt="Four people laughing on a mountain" class="img-fluid mb-3" width="800" height="533">
+          <figcaption class="h4 fw-light text-light text-center"><a href="project-3.html" class="stretched-link">People</a>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- Call to action -->
+  <div class="bg-primary text-dark">
+    <div class="container py-5 py-md-6">
+      <div class="row justify-content-center align-items-stretch gx-lg-6">
+        <div class="col-lg border-end-lg border-muted">
+          <h2 class="display-5 text-lg-end mb-3 my-lg-2">Would you like to see more?</h2>
+        </div>
+        <div class="col-lg">
+          <p class="lead">Duis aute irure dolor in reprehenderit in voluptate.</p>
+          <a href="contact.html" class="btn btn-outline-dark">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>

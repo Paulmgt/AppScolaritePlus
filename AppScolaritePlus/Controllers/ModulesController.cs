@@ -62,9 +62,14 @@ namespace AppScolaritePlus.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nom,Descriptif,Logo,Resume,Infos,ParcoursId,UnitesPedagogiqueId")] Modules modules, IFormFile Logo)
         {
+            
+
             if (Logo.Length > 0)
                 if (ModelState.IsValid)
             {
+                    var applicationDbContext = _context.Modules.Include(m => m.Parcours).Include(m => m.UnitePedagogique);
+                    
+
                     string rootPath = _webHostEnvironment.WebRootPath;
                     string fileName = Path.GetFileNameWithoutExtension(Logo.FileName) + "_" +
                                Guid.NewGuid() +
@@ -84,7 +89,8 @@ namespace AppScolaritePlus.Controllers
                     _context.Add(modules);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
+                   return View(await applicationDbContext.ToListAsync());
+                }
             ViewData["ParcoursId"] = new SelectList(_context.Parcours, "Id", "Intitule", modules.ParcoursId);
             ViewData["UnitesPedagogiqueId"] = new SelectList(_context.UnitesPedagogiques, "Id", "Designation", modules.UnitesPedagogiqueId);
             return View(modules);

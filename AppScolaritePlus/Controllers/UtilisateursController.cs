@@ -20,7 +20,7 @@ namespace AppScolaritePlus.Controllers
 
         //public IActionResult Create1(string username, int id)
         //{
-        //    Utilisateurs utilisateurs = new Utilisateurs() { Email = username, SessionsFormationId = id};
+        //    Utilisateurs utilisateurs = new Utilisateurs() { Email = username, SessionsFormationId = id };
         //}
 
         // GET: Utilisateurs

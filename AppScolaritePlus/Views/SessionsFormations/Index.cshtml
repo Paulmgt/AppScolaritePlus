@@ -6,74 +6,81 @@
 }
 
 
+    
+                <main id="main">
 
 
- <main role="main">
 
-     <section class="jumbotron text-center">
-        <div class="container">
-          <h1 class="jumbotron-heading">Nos Sessions</h1>
-          <p class="lead text-muted">Ajouter une Session</p>
-          <p>
-            <a asp-action="Create" class="btn btn-primary my-2">Cree</a>
+
+  <!-- Header -->
+  <div class="container text-center py-5 py-md-6">
+    <h1 class="display-3 mb-5">Nos Sessions</h1>
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-xxl-8">
+        <figure>
+          <blockquote class="blockquote text-center">
+            <p class="fst-italic">Ajouter une Session.</p>
+          </blockquote>
+          <a asp-action="Create" class="btn btn-warning my-2">Cree</a>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <!-- Projects -->
+  <div class="container pb-5">
+    <div class="row gx-xl-5">
+        @foreach (var item in Model)
             
-          </p>
-        </div>
-      </section>
-      <!-- Marketing messaging and featurettes
-      ================================================== -->
-      <!-- Wrap the rest of the page in another container to center all the content. -->
+            {
+                
 
-      <div class="container marketing">
+      <div class="col-md-6">
+        <figure class="img-color position-relative mb-5">
+          <img  src="~/LogosParcours/@item.Parcours?.Logo" alt="@item.Parcours?.Logo" class="img-fluid mb-3" width="800" height="533">
+          <figcaption class="h4 fw-light text-light text-center">
+            <a class="btn btn-secondary"  asp-action="Inscription"  class="btn btn-warning my-2">@item.Parcours?.Intitule <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></a> 
+          </figcaption>
+          </div>
+ }
+    </div>
+  </div>
 
-        <!-- Three columns of text below the carousel -->
-        <div class="row">
+  <hr class="featurette-divider">
 
-               @foreach (var item in Model.Take(2))
+  <div class="row">
+             @foreach (var item in Model.Take(2))
     {
           <div class="col-lg-4" style="align-content:center;">
             
             <img class="rounded-circle" src="~/LogosParcours/@item.Parcours?.Logo" alt="@item.Parcours?.Logo" width="140" height="140">
             <h2>@item.Parcours?.Intitule</h2>
             <p>@item.Parcours.Resume</p>
-                <p><a class="btn btn-secondary"  asp-action="Inscription" asp-route-id="@item.Id" role="button">View details »</a></p>
-            </div>
+                <p><a  asp-action="Details" asp-route-id="@item.Id" asp-controller="Parcours" role="button" class="btn btn-sm btn-outline-secondary">Details de la foramtion</a></p>
+              </div>
     }
-          </div><!-- /.col-lg-4 -->
-          
-          <!-- START THE FEATURETTES -->
+    </div>
 
-        <hr class="featurette-divider">
-       
 
-        <div class="row featurette">
-            
-            @foreach (var item in Model)
-            
-            {
-                <div class="col-md-7">
-            <h2 class="featurette-heading">@item.Parcours?.Intitule <span class="text-muted">Du @item.DateDebut au @item.DateFin</span></h2>
-            <p class="lead">@item.Parcours.Resume </p>
-             <div class="btn-group">
-                      <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Editer</a>
-                      <a asp-action="Details"  asp-route-id="@item.Id"  class="btn btn-sm btn-outline-secondary">Details</a>
-                      <a asp-action="Delete"  asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Delete</a>
-                  </div>
-                </div>
-                <div class="col-md-5">
-            <img class="rounded float-right" data-src="holder.js/300x300/auto" alt="300x300" style="width: 300px; height: 300;" src="~/logosParcours/@item?.Parcours.Logo" data-holder-rendered="true">
-          </div>
+
+  <hr class="featurette-divider">
+  <!-- Call to action -->
+  <div class="bg-primary text-dark" >
+    <div class="container py-5 py-md-6" style=" background-color: slategrey;">
+      <div class="row justify-content-center align-items-stretch gx-lg-6">
+        <div class="col-lg border-end-lg border-muted">
+            </div>
+        <div class="col-lg">
+          <small class="text-muted"> <a hhref="#" >contact </a></small>
           
-          <hr class="featurette-divider">
-          
-    
-                }
         </div>
+      </div>
+    </div>
+  </div>
+</main>
 
-       
+   
 
-
-        <!-- /END THE FEATURETTES -->
-        
-      </div><!-- /.container -->
-    </main>
+   
